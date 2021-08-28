@@ -45,8 +45,7 @@ else
     {
         ApplicationState.OnPersisting += PersistForecasts;
 
-        if (!ApplicationState
-            .TryTakeAsJson<WeatherForecast[]>("fetchdata", out var forecasts))
+        if (!ApplicationState.TryTakeAsJson<WeatherForecast[]>("fetchdata", out forecasts))
         {
             forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
         }
